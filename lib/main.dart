@@ -1,6 +1,7 @@
 // import 'package:bee_guided/ui/auth/verify_user.dart';
 import 'package:bee_guided/ui/home/discover_page.dart';
 import 'package:bee_guided/ui/home/home.dart';
+import 'package:bee_guided/ui/home/search_page.dart';
 import 'package:bee_guided/ui/onboarding/feeling_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
        theme: ThemeData(fontFamily: 'Lora'),
       debugShowCheckedModeBanner: false,
-      home: const DiscoverPage(),
+      home: const SearchPage(),
       // home: const RegisterPage(),
     );
   }

@@ -35,7 +35,7 @@ class DiscoverPage extends StatelessWidget {
             ),
             const Text(
               "Search by Emotion",
-              style:  TextStyle(
+              style: TextStyle(
                 fontFamily: 'Roboto',
                 fontSize: 24,
                 fontWeight: FontWeight.w600,
@@ -48,7 +48,7 @@ class DiscoverPage extends StatelessWidget {
               spacing: 10,
               runSpacing: 10,
               alignment: WrapAlignment.center,
-              children:const[
+              children: const [
                 FeelingChip(),
                 FeelingChip(),
                 FeelingChip(),
