@@ -1,7 +1,5 @@
 import 'package:bee_guided/ui/widgets/setting_listtile.dart';
-import 'package:bee_guided/ui/widgets/text_gradient.dart';
 import 'package:bee_guided/util/color.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -22,16 +20,19 @@ class SettingsPage extends StatelessWidget {
           )),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0),
-        child: Column(children: const [
-          SizedBox(
+        child: Column(children: [
+          const SizedBox(
             height: 15,
           ),
-          SettingsListTile(),
-          SettingsListTile(),
-          SettingsListTile(),
-          SettingsListTile(),
-          SettingsListTile(),
-          SettingsListTile(),
+          SettingsListTile(title: 'Edit Profile', onTap: () {}, icon: 'edit'),
+          SettingsListTile(
+              title: 'Notification Settings', onTap: () {}, icon: 'notify'),
+          SettingsListTile(title: 'About', onTap: () {}, icon: 'about'),
+          SettingsListTile(title: 'Help', onTap: () {}, icon: 'help'),
+          SettingsListTile(
+              title: 'Language & Fonts', onTap: () {}, icon: 'font'),
+          SettingsListTile(
+              title: 'Clear Local Cache', onTap: () {}, icon: 'delete'),
         ]),
       ),
     );

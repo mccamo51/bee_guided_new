@@ -1,4 +1,6 @@
 // import 'package:bee_guided/ui/auth/verify_user.dart';
+import 'package:bee_guided/ui/auth/login.dart';
+import 'package:bee_guided/ui/auth/register.dart';
 import 'package:bee_guided/ui/home/bible_version.dart';
 import 'package:bee_guided/ui/home/discover_page.dart';
 import 'package:bee_guided/ui/home/home.dart';
@@ -27,8 +29,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Lora'),
       debugShowCheckedModeBanner: false,
-      home: const SettingsPage(),
-      // home: const RegisterPage(),
+      home: const MorePage(),
+      // home: const BibleVersions(),
     );
   }
 }
