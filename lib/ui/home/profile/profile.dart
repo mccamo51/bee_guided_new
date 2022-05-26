@@ -11,18 +11,16 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(
           backgroundColor: white,
           leading: BackButton(onPressed: () {}),
-          actions: [TextButton(onPressed: () {}, child: Text("EDIT"))],
+          actions: [TextButton(onPressed: () {}, child: const Text("EDIT"))],
           elevation: 2,
-          iconTheme: IconThemeData(color: black),
+          iconTheme: const IconThemeData(color: black),
           title: const Text(
             "View Profile",
             style: TextStyle(color: black),
           )),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 14.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           SizedBox(
             height: 10,
           ),

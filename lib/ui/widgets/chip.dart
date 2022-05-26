@@ -21,9 +21,9 @@ class FeelingChip extends StatelessWidget {
             end: Alignment.bottomRight,
           ),
         ),
-        child: const Center(
+        child: Center(
             child: Text(
-          "Love",
+          title!,
           style: TextStyle(color: white),
         )),
       ),

@@ -8,7 +8,10 @@ import '../widgets/app_bar_widget.dart';
 import '../widgets/text_field.dart';
 
 class RegisterPage extends StatelessWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+  RegisterPage({Key? key}) : super(key: key);
+  final emailCtrl = TextEditingController();
+  final passwordCtrl = TextEditingController();
+  final nameCtrl = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +28,9 @@ class RegisterPage extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            const CustomTextField(
+            CustomTextField(
               hint: 'Enter Full Name',
+              controller: nameCtrl,
             ),
             const SizedBox(
               height: 20,
@@ -35,8 +39,9 @@ class RegisterPage extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            const CustomTextField(
+            CustomTextField(
               hint: 'Enter Email Address',
+              controller: emailCtrl,
             ),
             const SizedBox(
               height: 20,
@@ -45,9 +50,10 @@ class RegisterPage extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            const CustomTextField(
+            CustomTextField(
               hint: 'Enter Password',
-              suffixIcon: Icon(Icons.remove_red_eye),
+              controller: passwordCtrl,
+              suffixIcon: const Icon(Icons.remove_red_eye),
             ),
             const SizedBox(
               height: 5,
@@ -63,7 +69,8 @@ class RegisterPage extends StatelessWidget {
               height: 20,
             ),
             AuthButton(title: 'Log in', onTap: () {}),
-            TextButtonWidget(onTap: () {}, title: 'Already have an Account ? Login ?'),
+            TextButtonWidget(
+                onTap: () {}, title: 'Already have an Account ? Login ?'),
             const SizedBox(
               height: 20,
             ),

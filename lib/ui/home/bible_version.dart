@@ -1,5 +1,4 @@
 import 'package:bee_guided/ui/widgets/bible_version_tile.dart';
-import 'package:bee_guided/ui/widgets/search_field.dart';
 import 'package:bee_guided/util/color.dart';
 import 'package:flutter/material.dart';
 
