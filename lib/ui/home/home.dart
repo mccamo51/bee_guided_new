@@ -28,20 +28,20 @@ class HomePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                SizedBox(
+               const SizedBox(
                   height: 10,
                 ),
                 Text(
                   "Good Evening, ${_userInfoModel.data!.username}",
-                  style: TextStyle(
+                  style:const TextStyle(
                       fontSize: 23,
                       fontWeight: FontWeight.w700,
                       fontFamily: 'Roboto'),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
+              const  Text(
                   "Prepare your heart to meet with God.",
                   style: TextStyle(
                     fontSize: 16,

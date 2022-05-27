@@ -3,6 +3,7 @@ import 'package:bee_guided/ui/home/home.dart';
 import 'package:bee_guided/ui/home/my_favourites.dart';
 import 'package:bee_guided/ui/home/settings/more.dart';
 import 'package:bee_guided/util/color.dart';
+import 'package:bee_guided/util/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -39,72 +40,72 @@ class _HomeWithNavState extends State<HomeWithNav> {
               width: 23,
               height: 23,
               child: SvgPicture.asset(
-                "assets/icons/home.svg",
-                color: Colors.grey,
+                homeActiveIcon,
+                color: iconColor,
               ),
             ),
             icon: SizedBox(
               width: 23,
               height: 23,
               child: SvgPicture.asset(
-                "assets/icons/home.svg",
+                homeIcon,
                 color: Colors.grey,
               ),
             ),
             label: ('Home'),
           ),
           BottomNavigationBarItem(
-            // activeIcon: Container(
-            //   width: 23,
-            //   height: 23,
-            //   child: SvgPicture.asset(
-            //     "assets/iconsv2/briefcase_.svg",
-            //     color: primaryColor,
-            //   ),
-            // ),
+            activeIcon: SizedBox(
+              width: 23,
+              height: 23,
+              child: SvgPicture.asset(
+                discoverActiveIcon,
+                color: iconColor,
+              ),
+            ),
             icon: SizedBox(
               width: 23,
               height: 23,
               child: SvgPicture.asset(
-                "assets/imgs/wallet.svg",
+                discoverIcon,
                 color: Colors.grey,
               ),
             ),
             label: ('Discover'),
           ),
           BottomNavigationBarItem(
-            // activeIcon: Container(
-            //   width: 23,
-            //   height: 23,
-            //   child: SvgPicture.asset(
-            //     "assets/iconsv2/wallet.svg",
-            //     color: SECONDARYCOLOR,
-            //   ),
-            // ),
+            activeIcon: SizedBox(
+              width: 23,
+              height: 23,
+              child: SvgPicture.asset(
+                favActiveIcon,
+                color: iconColor,
+              ),
+            ),
             icon: SizedBox(
               width: 23,
               height: 23,
               child: SvgPicture.asset(
-                "assets/imgs/profile.svg",
+                favIcon,
                 color: Colors.grey,
               ),
             ),
             label: ('Favorite'),
           ),
           BottomNavigationBarItem(
-            // activeIcon: Container(
-            //   width: 23,
-            //   height: 23,
-            //   child: SvgPicture.asset(
-            //     "assets/iconsv2/wallet.svg",
-            //     color: SECONDARYCOLOR,
-            //   ),
-            // ),
+            activeIcon: SizedBox(
+              width: 23,
+              height: 23,
+              child: SvgPicture.asset(
+                moreActiveIcon,
+                color: iconColor,
+              ),
+            ),
             icon: SizedBox(
               width: 23,
               height: 23,
               child: SvgPicture.asset(
-                "assets/imgs/profile.svg",
+                moreIcon,
                 color: Colors.grey,
               ),
             ),
@@ -112,7 +113,7 @@ class _HomeWithNavState extends State<HomeWithNav> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: primaryColor,
+        selectedItemColor: iconColor,
         showSelectedLabels: true,
         showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,

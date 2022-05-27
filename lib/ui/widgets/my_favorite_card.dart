@@ -2,17 +2,20 @@ import 'package:bee_guided/util/color.dart';
 import 'package:flutter/material.dart';
 
 class MyFavouriteCard extends StatelessWidget {
-  const MyFavouriteCard({Key? key}) : super(key: key);
+  final String? quote, verse, days;
+  const MyFavouriteCard(
+      {Key? key, required this.quote, required this.verse, required this.days})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom:5.0),
+      padding: const EdgeInsets.only(bottom: 5.0),
       child: Container(
         // height: 160,
         padding: const EdgeInsets.all(15),
-        decoration:
-            BoxDecoration(borderRadius: BorderRadius.circular(15), color: white),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15), color: white),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -23,7 +26,7 @@ class MyFavouriteCard extends StatelessWidget {
                   width: 2,
                   color: Colors.red,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 8,
                 ),
                 Expanded(
@@ -33,13 +36,12 @@ class MyFavouriteCard extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
-                        children: const [
-                          Text("John 3:16 NIV"),
-                          SizedBox(
+                        children: [
+                          Text(quote!),
+                          const SizedBox(
                             height: 10,
                           ),
-                          Text(
-                              "16For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.J"),
+                          Text(verse!),
                         ],
                       ),
                     ))
@@ -48,9 +50,9 @@ class MyFavouriteCard extends StatelessWidget {
             const SizedBox(
               height: 2,
             ),
-            const Text(
-              "2days",
-              style: TextStyle(
+            Text(
+              days!,
+              style: const TextStyle(
                 color: lightGray,
                 fontSize: 10,
               ),

@@ -10,7 +10,9 @@ class AddNote extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: white,
-          leading: BackButton(onPressed: () {}),
+          leading: BackButton(onPressed: () {
+            Navigator.pop(context);
+          }),
           actions: [
             TextButton(onPressed: () {}, child: Text("Save".toUpperCase()))
           ],

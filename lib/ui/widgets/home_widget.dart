@@ -1,3 +1,5 @@
+import 'package:bee_guided/ui/home/note/add_note.dart';
+import 'package:bee_guided/ui/home/note/note.dart';
 import 'package:bee_guided/util/color.dart';
 import 'package:flutter/material.dart';
 
@@ -159,7 +161,12 @@ class MyNoteCard extends StatelessWidget {
                       color: primaryColor,
                     ),
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const AddNote()));
+                        },
                         child: const Text(
                           "Add Notes",
                           style: TextStyle(
@@ -170,24 +177,32 @@ class MyNoteCard extends StatelessWidget {
                         ))
                   ],
                 ),
-                Row(
-                  children: const [
-                    Text(
-                      "Notes",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 12,
-                        fontFamily: 'Raleway',
+                GestureDetector(
+                  onTap: (() {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const NotePage()));
+                  }),
+                  child: Row(
+                    children: const [
+                      Text(
+                        "Notes",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 12,
+                          fontFamily: 'Raleway',
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      width: 6,
-                    ),
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      size: 12,
-                    )
-                  ],
+                      SizedBox(
+                        width: 6,
+                      ),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        size: 12,
+                      )
+                    ],
+                  ),
                 )
               ],
             )

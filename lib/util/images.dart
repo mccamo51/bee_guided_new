@@ -1,2 +1,10 @@
 const appleLogo = 'assets/img/apple.png';
 const googleLogo = 'assets/img/google.png';
+const String homeActiveIcon = "assets/icon/home.svg";
+const String homeIcon = "assets/icon/home_.svg";
+const String discoverIcon = "assets/icon/discover_.svg";
+const String discoverActiveIcon = "assets/icon/discover.svg";
+const String favActiveIcon = "assets/icon/fav.svg";
+const String favIcon = "assets/icon/fav_.svg";
+const String moreActiveIcon = "assets/icon/more.svg";
+const String moreIcon = "assets/icon/more_.svg";

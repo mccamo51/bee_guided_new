@@ -11,7 +11,9 @@ class NotePage extends StatelessWidget {
       backgroundColor: white,
       appBar: AppBar(
           backgroundColor: white,
-          leading: BackButton(onPressed: () {}),
+          leading: BackButton(onPressed: () {
+            Navigator.pop(context);
+          }),
           actions: [
             TextButton(onPressed: () {}, child: Text("Add notes".toUpperCase()))
           ],
