@@ -1,16 +1,13 @@
-import 'package:bee_guided/model/response/user_info_model.dart';
 import 'package:bee_guided/ui/widgets/home_widget.dart';
 import 'package:bee_guided/util/color.dart';
 import 'package:bee_guided/view_model/user_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    UserModel _userInfoModel = context.read<UserProvider>().usermodel;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -27,21 +24,21 @@ class HomePage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-               const SizedBox(
+              children: const[
+                SizedBox(
                   height: 10,
                 ),
                 Text(
-                  "Good Evening, ${_userInfoModel.data!.username}",
-                  style:const TextStyle(
+                  "Good Evening,",
+                  style: TextStyle(
                       fontSize: 23,
                       fontWeight: FontWeight.w700,
                       fontFamily: 'Roboto'),
                 ),
-                const SizedBox(
+                 SizedBox(
                   height: 10,
                 ),
-              const  Text(
+                Text(
                   "Prepare your heart to meet with God.",
                   style: TextStyle(
                     fontSize: 16,

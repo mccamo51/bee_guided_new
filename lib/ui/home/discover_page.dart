@@ -1,10 +1,8 @@
-import 'package:bee_guided/model/response/category_model.dart';
 import 'package:bee_guided/ui/widgets/chip.dart';
 import 'package:bee_guided/ui/widgets/search_field.dart';
 import 'package:bee_guided/util/color.dart';
 import 'package:bee_guided/view_model/category_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class DiscoverPage extends StatelessWidget {
   const DiscoverPage({Key? key}) : super(key: key);
@@ -13,9 +11,7 @@ class DiscoverPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
-      body: context.watch<CategoryProvider>().itemCount == 0
-          ? const Center(child: CircularProgressIndicator())
-          : Padding(
+      body:  Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -52,7 +48,7 @@ class DiscoverPage extends StatelessWidget {
                   Expanded(
                     flex: 2,
                     child: GridView.builder(
-                      itemCount: context.read<CategoryProvider>().itemCount,
+                      itemCount: 100,
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3,
@@ -60,11 +56,7 @@ class DiscoverPage extends StatelessWidget {
                       ),
                       itemBuilder: (BuildContext context, int index) {
                         return FeelingChip(
-                          title: context
-                              .read<CategoryProvider>()
-                              .category
-                              .data![index]
-                              .desc,
+                          title: "Hello"
                         );
                       },
                     ),

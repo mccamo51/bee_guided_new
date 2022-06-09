@@ -8,3 +8,4 @@ const lightGray = Color.fromRGBO(209, 209, 214, 1);
 const bg = Color(0xffF2F2F7);
 const gradient1 = [Color(0xffF44369),Color(0xff3E3B92)];
 const iconColor = Color(0xffEF5DA8);
+const onbodrColor1 = Color(0xff51B8E3);

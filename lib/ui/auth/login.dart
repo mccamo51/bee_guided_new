@@ -6,7 +6,6 @@ import 'package:bee_guided/util/color.dart';
 import 'package:bee_guided/util/images.dart';
 import 'package:bee_guided/view_model/user_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import '../widgets/app_bar_widget.dart';
 import '../widgets/text_field.dart';
@@ -20,9 +19,7 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: white,
       appBar: appBar,
-      body: context.watch<UserProvider>().isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : Padding(
+      body:  Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -60,16 +57,13 @@ class LoginPage extends StatelessWidget {
                   AuthButton(
                       title: 'Log in',
                       onTap: () {
-                        context.read<UserProvider>().login().then((value) {
-                          if (value) {
-                            Navigator.pushAndRemoveUntil(
+                        Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(
                                     builder: (_) => const HomeWithNav()),
                                 (route) => false);
                           }
-                        });
-                      }),
+                      ),
                   TextButtonWidget(
                       onTap: () {
                         Navigator.push(context,
