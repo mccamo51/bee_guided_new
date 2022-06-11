@@ -9,6 +9,7 @@ class MyFavourite extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // context.read<FavoritesProvider>().gatAllFavorite();
     return Scaffold(
         appBar: AppBar(
           elevation: 1,
@@ -18,6 +19,7 @@ class MyFavourite extends StatelessWidget {
                 color: black, fontSize: 28, fontWeight: FontWeight.w700),
           ),
           backgroundColor: white,
+          iconTheme: IconThemeData(color: black),
         ),
         body: context.watch<FavoritesProvider>().itemCount == 0
             ? const Center(
@@ -27,10 +29,11 @@ class MyFavourite extends StatelessWidget {
                 itemCount:
                     context.read<FavoritesProvider>().favorite.data!.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return  MyFavouriteCard(
-                    days:context.read<FavoritesProvider>().favorite.data![index].noteCode ,
-                    quote: context.read<FavoritesProvider>().favorite.data![index].note,
-                    verse: context.read<FavoritesProvider>().favorite.data![index].title,
+                  var data = context.read<FavoritesProvider>().favorite.data!;
+                  return MyFavouriteCard(
+                    days: data[index].bookVersion,
+                    quote: "${data[index].book} ${data[index].verse}",
+                    verse: data[index].verseDetails,
                   );
                 },
               ));

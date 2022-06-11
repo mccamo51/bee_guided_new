@@ -12,7 +12,10 @@ import '../widgets/app_bar_widget.dart';
 import '../widgets/text_field.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  LoginPage({Key? key}) : super(key: key);
+  final emailCtrl = TextEditingController();
+  final passCtrl = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -24,73 +27,97 @@ class LoginPage extends StatelessWidget {
           ? const Center(child: CircularProgressIndicator())
           : Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  const Text("Email Address"),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const CustomTextField(
-                    hint: 'Enter Email Address',
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const Text("Password"),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const CustomTextField(
-                    hint: 'Enter Password',
-                    suffixIcon: Icon(Icons.remove_red_eye),
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButtonWidget(
-                        title: "forgot password ?",
-                        onTap: () {},
-                      )),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  AuthButton(
-                      title: 'Log in',
-                      onTap: () {
-                        context.read<UserProvider>().login().then((value) {
-                          if (value) {
-                            Navigator.pushAndRemoveUntil(
+              child: Form(
+                key: _formKey,
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      const Text("Email Address"),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      CustomTextField(
+                        hint: 'Enter Email Address',
+                        controller: emailCtrl,
+                        validate: true,
+                        emailValidate: true,
+                        errorMsg: 'Email required',
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const Text("Password"),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      CustomTextField(
+                        hint: 'Enter Password',
+                        controller: passCtrl,
+                        suffixIcon: const Icon(Icons.remove_red_eye),
+                        validate: true,
+                        errorMsg: 'Password required',
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Align(
+                          alignment: Alignment.centerRight,
+                          child: TextButtonWidget(
+                            title: "forgot password ?",
+                            onTap: () {},
+                          )),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      AuthButton(
+                          title: 'Log in',
+                          onTap: () {
+                            if (_formKey.currentState!.validate()) {
+                              context
+                                  .read<UserProvider>()
+                                  .login(emailCtrl.text, passCtrl.text)
+                                  .then((value) {
+                                if (value) {
+                                  // print(value);
+                                  Navigator.pushAndRemoveUntil(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (_) => const HomeWithNav()),
+                                      (route) => false);
+                                } else {
+                                  // const SnackBar(
+                                  //   content: Text("Failed"),
+                                  // );
+                                }
+                              });
+                            }
+                          }),
+                      TextButtonWidget(
+                          onTap: () {
+                            Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (_) => const HomeWithNav()),
-                                (route) => false);
-                          }
-                        });
-                      }),
-                  TextButtonWidget(
-                      onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (_) => RegisterPage()));
-                      },
-                      title: 'Don’t have an Account ? Sign up'),
-                  const SizedBox(
-                    height: 20,
+                                    builder: (_) => RegisterPage()));
+                          },
+                          title: 'Don’t have an Account ? Sign up'),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const Divider(),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const SocialButton(
+                          image: googleLogo, title: 'Signup with Google'),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const SocialButton(
+                          image: appleLogo, title: 'Signup with Apple'),
+                    ],
                   ),
-                  const Divider(),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const SocialButton(
-                      image: googleLogo, title: 'Signup with Google'),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const SocialButton(
-                      image: appleLogo, title: 'Signup with Apple'),
-                ],
+                ),
               ),
             ),
     );

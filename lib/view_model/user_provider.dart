@@ -28,10 +28,12 @@ class UserProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<bool> login() async {
+  Future<bool> login(String email, String password) async {
     setLoading(true);
-    await _userRepo.userLogin('kwakye@gitplus.app', '12345678').then((value) {
-      if (value != null) {
+    print(password + email);
+
+    await _userRepo.userLogin(email, password).then((value) {
+      if (value!.data != null) {
         setUser(value);
         setIsSuccess(true);
       }

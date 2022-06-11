@@ -8,6 +8,7 @@ class FavoriteRepo {
   Future<FavoriteModel> getFavorite() async {
     FavoriteModel _favorite = FavoriteModel();
     await apiClient.getData(favoriteUrl + "/732577394d").then((value) {
+      // print(value.response);
       _favorite = FavoriteModel.fromJson(value.response);
     }).onError((error, stackTrace) {
       debugPrint("===> BASEURL" + stackTrace.toString() + error.toString());

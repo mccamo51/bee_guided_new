@@ -7,13 +7,13 @@ class FavoriteModel {
     if (json['data'] != null) {
       data = <Data>[];
       json['data'].forEach((v) {
-        data!.add(Data.fromJson(v));
+        data!.add(new Data.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
     }
@@ -22,34 +22,26 @@ class FavoriteModel {
 }
 
 class Data {
-  String? noteCode;
-  String? note;
-  String? title;
-  String? createdDate;
-  String? createdTime;
+  String? book;
+  String? verse;
+  String? verseDetails;
+  String? bookVersion;
 
-  Data(
-      {this.noteCode,
-      this.note,
-      this.title,
-      this.createdDate,
-      this.createdTime});
+  Data({this.book, this.verse, this.verseDetails, this.bookVersion});
 
   Data.fromJson(Map<String, dynamic> json) {
-    noteCode = json['noteCode'];
-    note = json['note'];
-    title = json['title'];
-    createdDate = json['createdDate'];
-    createdTime = json['createdTime'];
+    book = json['book'];
+    verse = json['verse'];
+    verseDetails = json['verse_details'];
+    bookVersion = json['bookVersion'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['noteCode'] = noteCode;
-    data['note'] = note;
-    data['title'] = title;
-    data['createdDate'] = createdDate;
-    data['createdTime'] = createdTime;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['book'] = this.book;
+    data['verse'] = this.verse;
+    data['verse_details'] = this.verseDetails;
+    data['bookVersion'] = this.bookVersion;
     return data;
   }
 }

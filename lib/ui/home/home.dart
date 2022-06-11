@@ -12,6 +12,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     UserModel _userInfoModel = context.read<UserProvider>().usermodel;
     return Scaffold(
+      backgroundColor: backgroundColor,
       appBar: AppBar(
         title: const Text(
           "Home",
@@ -28,12 +29,12 @@ class HomePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-               const SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Text(
-                  "Good Evening, ${_userInfoModel.data!.username}",
-                  style:const TextStyle(
+                  "Good Evening, ${_userInfoModel.data?.username}",
+                  style: const TextStyle(
                       fontSize: 23,
                       fontWeight: FontWeight.w700,
                       fontFamily: 'Roboto'),
@@ -41,7 +42,7 @@ class HomePage extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-              const  Text(
+                const Text(
                   "Prepare your heart to meet with God.",
                   style: TextStyle(
                     fontSize: 16,

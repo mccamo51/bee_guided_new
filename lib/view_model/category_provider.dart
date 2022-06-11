@@ -1,4 +1,5 @@
 import 'package:bee_guided/model/response/category_model.dart';
+import 'package:bee_guided/model/single_cat_model.dart';
 import 'package:bee_guided/repo/category_repo.dart';
 import 'package:flutter/material.dart';
 
@@ -7,10 +8,12 @@ class CategoryProvider with ChangeNotifier {
   bool _isLoading = false;
   int _itemCount = 0;
   CategoryModel _categoryModel = CategoryModel();
+  SingleCateModel _singleCateModel = SingleCateModel();
 
   bool get isLoading => _isLoading;
   int get itemCount => _itemCount;
   CategoryModel get category => _categoryModel;
+  SingleCateModel get singleCat => _singleCateModel;
   void setLoading(bool loading) {
     _isLoading = loading;
     notifyListeners();
@@ -22,6 +25,11 @@ class CategoryProvider with ChangeNotifier {
 
   void setCategory(CategoryModel model) {
     _categoryModel = model;
+    notifyListeners();
+  }
+
+  void setSingleCategory(SingleCateModel model) {
+    _singleCateModel = model;
     notifyListeners();
   }
 
@@ -38,6 +46,19 @@ class CategoryProvider with ChangeNotifier {
         getItemCount(value.data!.length);
       }
       setLoading(false);
+    });
+  }
+
+  void searchCategory(String categoryID) {
+    _singleCateModel.data!.clear();
+    setLoading(true);
+
+    _categoryRepo.getSingleCat(categoryID).then((value) {
+      if (value != null) {
+        // print(value.data);
+        setSingleCategory(value);
+        setLoading(false);
+      }
     });
   }
 }

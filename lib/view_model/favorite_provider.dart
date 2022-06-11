@@ -35,12 +35,13 @@ class FavoritesProvider with ChangeNotifier {
 
   Future<void> gatAllFavorite() async {
     _favoriteRepo.getFavorite().then((value) {
+      // print(value.data![0].note);
       setLoading(true);
       if (value != null) {
         setFavorites(value);
         getItemCount(value.data!.length);
+        setLoading(false);
       }
-      setLoading(false);
     });
   }
 }

@@ -21,14 +21,14 @@ class SettingsListTile extends StatelessWidget {
         ),
         child: ListTile(
             onTap: onTap,
-            leading:  SvgPicture.asset('assets/icon/$icon.svg'),
+            leading:  SvgPicture.asset('assets/icon/$icon.svg', color: black,),
             title: Text(
               title,
               style: const TextStyle(
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.w500,
                   fontSize: 16,
-                  color: iconColor),
+                  color: black),
             ),
             trailing: const Icon(
               Icons.arrow_forward_ios,

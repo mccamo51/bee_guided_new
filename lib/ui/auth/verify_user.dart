@@ -21,8 +21,10 @@ class VerifyUser extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            const CustomTextField(
+            CustomTextField(
               hint: 'Enter Email Address',
+              validate: true,
+              emailValidate: true,
             ),
             const SizedBox(
               height: 20,

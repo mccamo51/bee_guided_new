@@ -22,7 +22,7 @@ class DropdownContainer extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                "Testament",
+                "Version",
                 style: TextStyle(
                   color: black,
                   fontFamily: "Roboto",
@@ -44,7 +44,7 @@ class DropdownContainer extends StatelessWidget {
               ),
               ListTile(
                 title: Text(
-                  "New Testament",
+                  "NIV",
                   style: TextStyle(
                     fontSize: 14,
                   ),
@@ -52,7 +52,7 @@ class DropdownContainer extends StatelessWidget {
               ),
               ListTile(
                 title: Text(
-                  "Old Testament",
+                  "KJV",
                   style: TextStyle(
                     fontSize: 14,
                   ),

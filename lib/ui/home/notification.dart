@@ -11,7 +11,9 @@ class NotificationPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: white,
-          leading: BackButton(onPressed: () {}),
+          leading: BackButton(onPressed: () {
+            Navigator.pop(context);
+          }),
           actions: [
             IconButton(onPressed: () {}, icon: const Icon(Icons.close))
           ],

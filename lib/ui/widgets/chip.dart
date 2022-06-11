@@ -10,22 +10,25 @@ class FeelingChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Container(
-        height: 50,
-        width: MediaQuery.of(context).size.width / 4,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          gradient: const LinearGradient(
-            colors: [Color(0xffF44369), Color(0xff3E3B92)],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          height: 50,
+          width: MediaQuery.of(context).size.width / 2,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15), color: getRandomColor()
+              // gradient: const LinearGradient(
+              //   colors: [Color(0xffF44369), Color(0xff3E3B92)],
+              //   begin: Alignment.topLeft,
+              //   end: Alignment.bottomRight,
+              // ),
+              ),
+          child: Center(
+              child: Text(
+            title!,
+            style: TextStyle(color: white),
+          )),
         ),
-        child: Center(
-            child: Text(
-          title!,
-          style: TextStyle(color: white),
-        )),
       ),
     );
   }

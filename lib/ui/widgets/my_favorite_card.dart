@@ -37,11 +37,11 @@ class MyFavouriteCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text(quote!),
+                          Text("$quote"),
                           const SizedBox(
                             height: 10,
                           ),
-                          Text(verse!),
+                          Text("$verse"),
                         ],
                       ),
                     ))
@@ -51,7 +51,7 @@ class MyFavouriteCard extends StatelessWidget {
               height: 2,
             ),
             Text(
-              days!,
+              "$days",
               style: const TextStyle(
                 color: lightGray,
                 fontSize: 10,

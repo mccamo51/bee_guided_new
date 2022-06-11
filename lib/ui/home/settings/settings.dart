@@ -1,3 +1,4 @@
+import 'package:bee_guided/ui/home/notification.dart';
 import 'package:bee_guided/ui/widgets/setting_listtile.dart';
 import 'package:bee_guided/util/color.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,9 @@ class SettingsPage extends StatelessWidget {
       backgroundColor: white,
       appBar: AppBar(
           backgroundColor: white,
-          leading: BackButton(onPressed: () {}),
+          leading: BackButton(onPressed: () {
+            Navigator.pop(context);
+          }),
           elevation: 1,
           iconTheme: const IconThemeData(color: black),
           title: const Text(
@@ -26,8 +29,23 @@ class SettingsPage extends StatelessWidget {
           ),
           SettingsListTile(title: 'Edit Profile', onTap: () {}, icon: 'edit'),
           SettingsListTile(
-              title: 'Notification Settings', onTap: () {}, icon: 'notify'),
-          SettingsListTile(title: 'About', onTap: () {}, icon: 'about'),
+              title: 'Notification Settings',
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => NotificationPage()));
+              },
+              icon: 'notify'),
+          SettingsListTile(
+              title: 'About',
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => NotificationPage()));
+              },
+              icon: 'about'),
           SettingsListTile(title: 'Help', onTap: () {}, icon: 'help'),
           SettingsListTile(
               title: 'Language & Fonts', onTap: () {}, icon: 'font'),

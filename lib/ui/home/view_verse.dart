@@ -44,7 +44,7 @@ class ViewVerse extends StatelessWidget {
                   Row(
                     children: const [
                       Chip(
-                        label: Text('English/NIV'),
+                        label: Text('English'),
                         side: BorderSide(width: 0.7, color: lightGray),
                         backgroundColor: white,
                       ),
@@ -52,7 +52,7 @@ class ViewVerse extends StatelessWidget {
                         width: 4,
                       ),
                       Chip(
-                        label: Text('OT/NT'),
+                        label: Text('KJV/NIV'),
                         side: BorderSide(width: 0.7, color: lightGray),
                         backgroundColor: white,
                       )

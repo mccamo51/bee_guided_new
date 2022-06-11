@@ -2,9 +2,8 @@ import 'package:bee_guided/util/color.dart';
 import 'package:flutter/material.dart';
 
 class NoteCard extends StatelessWidget {
-  final String title, description;
-  const NoteCard({Key? key, required this.title, required this.description})
-      : super(key: key);
+  final String? title, description;
+  const NoteCard({Key? key, this.title, this.description}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +19,7 @@ class NoteCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              title,
+              "$title",
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w700,
@@ -29,7 +28,7 @@ class NoteCard extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            Text(description)
+            Text("$description")
           ],
         ),
       ),

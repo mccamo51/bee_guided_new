@@ -165,7 +165,7 @@ class MyNoteCard extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const AddNote()));
+                                  builder: (context) => AddNote()));
                         },
                         child: const Text(
                           "Add Notes",

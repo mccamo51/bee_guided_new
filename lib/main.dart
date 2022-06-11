@@ -3,6 +3,7 @@ import 'package:bee_guided/ui/auth/login.dart';
 import 'package:bee_guided/util/color.dart';
 import 'package:bee_guided/view_model/category_provider.dart';
 import 'package:bee_guided/view_model/favorite_provider.dart';
+import 'package:bee_guided/view_model/note_provider.dart';
 import 'package:bee_guided/view_model/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -21,16 +22,17 @@ class MyApp extends StatelessWidget {
             ChangeNotifierProvider(create: (_) => UserProvider()),
             ChangeNotifierProvider(create: (_) => CategoryProvider()),
             ChangeNotifierProvider(create: (_) => FavoritesProvider()),
+            ChangeNotifierProvider(create: (_) => NoteProvider()),
           ],
           builder: (context, child) {
             return MaterialApp(
                 debugShowCheckedModeBanner: false,
                 theme: ThemeData(
-                  fontFamily: 'Lora',
+                  fontFamily: 'Roboto',
                   primaryColor: primaryColor,
                   visualDensity: VisualDensity.adaptivePlatformDensity,
                 ),
                 // home:FingerprintAuth()
-                home: const LoginPage());
+                home: LoginPage());
           });
 }
